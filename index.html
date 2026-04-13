@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danilo Paulino | Portfólio | </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-music"></i> Danilo Paulino
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="active" id="btn-inicio"><a href="#"><i class="fa-solid fa-house"></i> Início</a></li>
+                    <li id="btn-pi"><a href="#"><i class="fa-solid fa-folder-open"></i> Projeto Integrador</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="nav-buttons">
+                    <button disabled><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="theme-toggle" class="theme-btn">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+                <div class="profile">
+                    <a href="#" class="contact-btn">Fale Comigo</a>
+                    
+                    <div class="avatar">
+                        <img src="https://i.scdn.co/image/ab6775700000ee857bbe4aebb43f8cf1ede4803a" alt="Minha Foto">
+                        <!--<i class="fa-regular fa-user"></i></div> -->
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <h1 id="greeting">Boa tarde</h1>
+
+                <section id="projetos" class="section">
+                    <div class="section-header">
+                        <h2>Meus Projetos no GitHub</h2>
+                    </div>
+                    
+                    <div class="cards-grid">
+                        
+                        <div class="card" onclick="window.open('https://github.com/Rogue-s-Haven/loja_brinquedos', '_blank')">
+                            <div class="card-img-container">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="Logo GitHub">
+                                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="card-text">
+                                <h3>Loja de Brinquedos</h3>
+                                <p>Sistema de e-commerce ou gerenciamento desenvolvido para uma loja de brinquedos.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" onclick="window.open('https://github.com/Rogue-s-Haven/Interdisciplinar_agil', '_blank')">
+                            <div class="card-img-container">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="Logo GitHub">
+                                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="card-text">
+                                <h3>PI - Interdisciplinar Ágil</h3>
+                                <p>Projeto Integrador (PI) Projeto acadêmico com foco na aplicação de metodologias de desenvolvimento ágil.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" onclick="window.open('https://github.com/Rogue-s-Haven/cop30', '_blank')">
+                            <div class="card-img-container">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="Logo GitHub">
+                                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="card-text">
+                                <h3>COP 30</h3>
+                                <p>Projeto desenvolvido com foco na conferência climática COP 30.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" onclick="window.open('https://github.com/Rogue-s-Haven/CEventoAcessoQR', '_blank')">
+                            <div class="card-img-container">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="Logo GitHub">
+                                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="card-text">
+                                <h3>Acesso via QR Code</h3>
+                                <p>Sistema eficiente de controle de entrada e acesso a eventos utilizando leitura de QR Code.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" onclick="window.open('https://github.com/Rogue-s-Haven/PI-aparecida', '_blank')">
+                            <div class="card-img-container">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="Logo GitHub">
+                                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="card-text">
+                                <h3>PI - Aparecida</h3>
+                                <p>Projeto Integrador (PI) da instituição de ensino.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" onclick="window.open('https://github.com/deletrr/PI', '_blank')">
+                            <div class="card-img-container">
+                                <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="Logo GitHub">
+                                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                            <div class="card-text">
+                                <h3>PI 5º DSM - React Native</h3>
+                                <p>Este projeto consiste em uma aplicação móvel educativa focada no ensino de matemática através de gamificação</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

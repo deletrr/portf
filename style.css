@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Definição das Variáveis de Tema */
+.dark-mode {
+    --bg-base: #000000;
+    --bg-highlight: #121212;
+    --bg-surface: #181818;
+    --bg-hover: #282828;
+    --text-base: #ffffff;
+    --text-subdued: #b3b3b3;
+    --accent-green: #1ed760;
+    --topbar-gradient: linear-gradient(180deg, #2a2d36 0%, #121212 100%);
+}
+
+.light-mode {
+    --bg-base: #f0f0f0;
+    --bg-highlight: #ffffff;
+    --bg-surface: #e0e0e0;
+    --bg-hover: #d1d1d1;
+    --text-base: #121212;
+    --text-subdued: #5a5a5a;
+    --accent-green: #1db954;
+    --topbar-gradient: linear-gradient(180deg, #e6e6e6 0%, #ffffff 100%);
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-base);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    padding: 8px;
+    gap: 8px;
+}
+
+/* --- BARRA LATERAL --- */
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+    background-color: var(--bg-highlight);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu ul { list-style: none; }
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-subdued);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0;
+    margin-bottom: 12px;
+}
+
+.menu li.active a, .menu a:hover {
+    color: var(--text-base);
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-highlight);
+    border-radius: 8px;
+    overflow-y: auto;
+    background: var(--topbar-gradient);
+    background-attachment: local;
+    position: relative;
+}
+
+/* --- CABEÇALHO SUPERIOR --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 20px 32px; /* Espaço extra para a foto grande */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-btn {
+    cursor: pointer;
+    background-color: var(--bg-surface) !important;
+    color: var(--text-base) !important;
+}
+
+/* --- FOTO DE PERFIL (AVATAR) ALINHADA E 200% MAIOR --- */
+.profile {
+    display: flex;
+    align-items: center; /* Garante que o botão e a foto fiquem alinhados no meio */
+    gap: 24px; 
+}
+
+.contact-btn {
+    background-color: var(--text-base);
+    color: var(--bg-base);
+    padding: 10px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.avatar {
+    background-color: var(--bg-surface);
+    width: 96px; /* Tamanho 200% maior (era 32px, agora é 96px) */
+    height: 96px; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px; /* Tamanho do ícone caso não tenha foto */
+    overflow: hidden; /* Se você colocar uma imagem, isso garante que ela não vaze do círculo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Uma sombrinha leve para dar destaque */
+}
+
+/* Configuração para quando você adicionar uma foto real `<img>` dentro do avatar */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a foto se adaptar ao círculo sem achatar */
+}
+
+/* --- ENVOLTÓRIO DO CONTEÚDO --- */
+.content-wrapper {
+    padding: 0px 32px 48px 32px;
+    flex: 1;
+}
+
+#greeting {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 32px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+/* --- GRID DE CARDS VOLTANDO AO NORMAL (ALINHADOS) --- */
+.cards-grid {
+    display: grid;
+    /* Tamanho ideal original restaurado */
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 24px; 
+}
+
+.card {
+    background-color: var(--bg-surface);
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover {
+    background-color: var(--bg-hover);
+    transform: translateY(-4px); /* Efeito suave de levantar ao passar o mouse */
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.card p {
+    color: var(--text-subdued);
+    font-size: 14px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botão Play Alinhado */
+.play-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-green);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MODO CELULAR)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    .app-container {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+    }
+
+    /* 1. Transforma a Barra Lateral em um Menu Inferior fixo */
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-width: 100%;
+        height: 70px;
+        padding: 10px 20px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0;
+        z-index: 1000;
+        background-color: var(--bg-surface);
+        border-top: 1px solid var(--bg-hover);
+    }
+
+    .logo {
+        display: none; /* Esconde o logo para focar nos botões */
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu ul {
+        display: flex;
+        justify-content: space-around; /* Espalha os botões igualmente */
+        width: 100%;
+    }
+
+    .menu a {
+        flex-direction: column; /* Ícone em cima, texto embaixo */
+        gap: 6px;
+        font-size: 12px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .menu a i {
+        font-size: 22px;
+    }
+
+    /* 2. Ajustes na Área Principal para não ficar escondida sob o menu */
+    .main-content {
+        border-radius: 0;
+        padding-bottom: 80px; 
+    }
+
+    /* 3. Cabeçalho (Topbar) e Foto de Perfil */
+    .topbar {
+        padding: 16px 20px;
+    }
+
+    .nav-buttons {
+        display: none; /* Esconde as setas de voltar/avançar que não são usadas no celular */
+    }
+
+    .profile {
+        width: 100%;
+        justify-content: space-between; /* Botão de um lado, foto do outro */
+        flex-direction: row-reverse; /* Joga o botão de tema pra esquerda e a foto pra direita */
+    }
+
+    .avatar {
+        width: 50px; /* Reduz a foto de perfil para caber na tela */
+        height: 50px;
+    }
+
+    .contact-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .content-wrapper {
+        padding: 0px 20px 20px 20px;
+    }
+
+    #greeting {
+        font-size: 26px;
+        margin-bottom: 24px;
+    }
+
+    /* 4. Grid de Projetos */
+    .cards-grid {
+        /* Permite que os cards fiquem menores e caibam em 2 colunas no celular */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px; 
+    }
+
+    .card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .card h3 {
+        font-size: 15px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+
+    /* 5. Botão Play visível */
+    /* No celular não existe o efeito de passar o mouse (hover). 
+       Então deixamos o botão de play sempre visível na tela pequena. */
+    .play-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        opacity: 1; 
+        transform: translateY(0);
+        bottom: 8px;
+        right: 8px;
+    }
+}
