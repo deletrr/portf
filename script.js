@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const icon = themeToggle.querySelector('i');
 
-    // 1. Função para atualizar o ícone do botão
+    // 1. Função para atualizar o ícone do botão de tema
     const updateIcon = () => {
         if (body.classList.contains('light-mode')) {
             icon.classList.replace('fa-moon', 'fa-sun');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 2. Verifica se o usuário já tem uma preferência salva
+    // 2. Verifica se o usuário já tem uma preferência salva de tema
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         body.className = savedTheme;
@@ -45,16 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Quando clica em "Projeto Integrador"
     btnPi.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita que a página pule para o topo
+        e.preventDefault(); 
         
-        // Atualiza estilo visual do menu
         btnInicio.classList.remove('active');
         btnPi.classList.add('active');
 
-        // Filtra os cards
         cards.forEach(card => {
-            const title = card.querySelector('h3').innerText;
-            // Se o título começar com "PI", mostra. Se não, esconde.
+            const title = card.querySelector('.card-text h3').innerText;
             if (title.trim().toUpperCase().startsWith('PI')) {
                 card.classList.remove('hidden');
             } else {
@@ -67,13 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
     btnInicio.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Atualiza estilo visual do menu
         btnPi.classList.remove('active');
         btnInicio.classList.add('active');
 
-        // Mostra todos os cards novamente
         cards.forEach(card => {
             card.classList.remove('hidden');
+        });
+    });
+
+    // 6. Lógica da Nota (Informações do Projeto virando a carta)
+    const infoBtns = document.querySelectorAll('.info-btn');
+    const closeBtns = document.querySelectorAll('.close-btn');
+
+    infoBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); 
+            const card = e.target.closest('.card');
+            card.classList.add('show-note');
+        });
+    });
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const card = e.target.closest('.card');
+            card.classList.remove('show-note');
         });
     });
 });

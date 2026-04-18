@@ -99,7 +99,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    padding: 20px 32px; /* Espaço extra para a foto grande */
+    padding: 20px 32px; 
     position: sticky;
     top: 0;
     z-index: 100;
@@ -128,10 +128,10 @@ body {
     color: var(--text-base) !important;
 }
 
-/* --- FOTO DE PERFIL (AVATAR) ALINHADA E 200% MAIOR --- */
+/* --- FOTO DE PERFIL --- */
 .profile {
     display: flex;
-    align-items: center; /* Garante que o botão e a foto fiquem alinhados no meio */
+    align-items: center; 
     gap: 24px; 
 }
 
@@ -147,22 +147,21 @@ body {
 
 .avatar {
     background-color: var(--bg-surface);
-    width: 96px; /* Tamanho 200% maior (era 32px, agora é 96px) */
+    width: 96px; 
     height: 96px; 
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px; /* Tamanho do ícone caso não tenha foto */
-    overflow: hidden; /* Se você colocar uma imagem, isso garante que ela não vaze do círculo */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Uma sombrinha leve para dar destaque */
+    font-size: 32px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
 }
 
-/* Configuração para quando você adicionar uma foto real `<img>` dentro do avatar */
 .avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz a foto se adaptar ao círculo sem achatar */
+    object-fit: cover; 
 }
 
 /* --- ENVOLTÓRIO DO CONTEÚDO --- */
@@ -182,10 +181,9 @@ body {
     margin-bottom: 24px;
 }
 
-/* --- GRID DE CARDS VOLTANDO AO NORMAL (ALINHADOS) --- */
+/* --- GRID DE CARDS --- */
 .cards-grid {
     display: grid;
-    /* Tamanho ideal original restaurado */
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     gap: 24px; 
 }
@@ -194,17 +192,24 @@ body {
     background-color: var(--bg-surface);
     padding: 20px;
     border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 16px; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative; 
+    overflow: hidden; 
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* O CARD INTEIRO SOBE E MUDA DE COR AO PASSAR O MOUSE */
 .card:hover {
     background-color: var(--bg-hover);
-    transform: translateY(-4px); /* Efeito suave de levantar ao passar o mouse */
+    transform: translateY(-4px);
+}
+
+.card-main {
+    transition: opacity 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .card-img-container {
@@ -227,7 +232,7 @@ body {
     gap: 8px;
 }
 
-.card h3 {
+.card-text h3 {
     font-size: 18px;
     font-weight: 700;
     white-space: nowrap; 
@@ -235,7 +240,7 @@ body {
     text-overflow: ellipsis; 
 }
 
-.card p {
+.card-text p {
     color: var(--text-subdued);
     font-size: 14px;
     line-height: 1.5;
@@ -245,30 +250,105 @@ body {
     overflow: hidden;
 }
 
-/* Botão Play Alinhado */
-.play-btn {
+/* --- BOTÕES DE AÇÃO NO CARD (INFO E PLAY) --- */
+.card-actions {
     position: absolute;
     bottom: 12px;
     right: 12px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-green);
-    color: #000;
+    display: flex;
+    gap: 8px; 
+}
+
+.play-btn, .info-btn {
+    width: 48px;
+    height: 48px;
     border: none;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    opacity: 0;
+    cursor: pointer;
+    opacity: 0; 
     transform: translateY(10px);
     transition: all 0.3s ease;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.4);
 }
 
-.card:hover .play-btn {
+.play-btn { background-color: var(--accent-green); color: #000; }
+.info-btn { background-color: rgba(0,0,0,0.7); color: #fff; backdrop-filter: blur(4px); }
+
+.card:hover .play-btn, .card:hover .info-btn {
     opacity: 1;
     transform: translateY(0);
+}
+
+.play-btn:hover { transform: scale(1.05); background-color: #1fdf64; }
+.info-btn:hover { transform: scale(1.05); background-color: #333; }
+
+/* --- A NOTA (VERSO DO CARD) --- */
+.card-note {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-hover);
+    padding: 20px;
+    border-radius: 12px;
+    transform: translateY(100%); 
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.card.show-note .card-note {
+    transform: translateY(0); 
+}
+.card.show-note .card-main {
+    opacity: 0; 
+    pointer-events: none;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--bg-surface);
+    padding-bottom: 10px;
+}
+
+.note-header h3 {
+    font-size: 16px;
+    color: var(--accent-green);
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-subdued);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover { color: var(--text-base); }
+
+.note-content {
+    overflow-y: auto; 
+    color: var(--text-base);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.note-content p {
+    margin-bottom: 10px;
+    display: block;
+    -webkit-line-clamp: unset; 
+    overflow: visible;
 }
 
 .hidden {
@@ -286,7 +366,6 @@ body {
         gap: 0;
     }
 
-    /* 1. Transforma a Barra Lateral em um Menu Inferior fixo */
     .sidebar {
         position: fixed;
         bottom: 0;
@@ -305,7 +384,7 @@ body {
     }
 
     .logo {
-        display: none; /* Esconde o logo para focar nos botões */
+        display: none; 
     }
 
     .menu {
@@ -314,12 +393,12 @@ body {
 
     .menu ul {
         display: flex;
-        justify-content: space-around; /* Espalha os botões igualmente */
+        justify-content: space-around; 
         width: 100%;
     }
 
     .menu a {
-        flex-direction: column; /* Ícone em cima, texto embaixo */
+        flex-direction: column; 
         gap: 6px;
         font-size: 12px;
         margin-bottom: 0;
@@ -330,29 +409,27 @@ body {
         font-size: 22px;
     }
 
-    /* 2. Ajustes na Área Principal para não ficar escondida sob o menu */
     .main-content {
         border-radius: 0;
         padding-bottom: 80px; 
     }
 
-    /* 3. Cabeçalho (Topbar) e Foto de Perfil */
     .topbar {
         padding: 16px 20px;
     }
 
     .nav-buttons {
-        display: none; /* Esconde as setas de voltar/avançar que não são usadas no celular */
+        display: none; 
     }
 
     .profile {
         width: 100%;
-        justify-content: space-between; /* Botão de um lado, foto do outro */
-        flex-direction: row-reverse; /* Joga o botão de tema pra esquerda e a foto pra direita */
+        justify-content: space-between; 
+        flex-direction: row-reverse; 
     }
 
     .avatar {
-        width: 50px; /* Reduz a foto de perfil para caber na tela */
+        width: 50px; 
         height: 50px;
     }
 
@@ -370,36 +447,32 @@ body {
         margin-bottom: 24px;
     }
 
-    /* 4. Grid de Projetos */
     .cards-grid {
-        /* Permite que os cards fiquem menores e caibam em 2 colunas no celular */
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 16px; 
     }
 
     .card {
         padding: 12px;
+    }
+
+    .card-main {
         gap: 12px;
     }
 
-    .card h3 {
+    .card-text h3 {
         font-size: 15px;
     }
 
-    .card p {
+    .card-text p {
         font-size: 12px;
     }
 
-    /* 5. Botão Play visível */
-    /* No celular não existe o efeito de passar o mouse (hover). 
-       Então deixamos o botão de play sempre visível na tela pequena. */
-    .play-btn {
+    .play-btn, .info-btn {
         width: 40px;
         height: 40px;
         font-size: 16px;
         opacity: 1; 
         transform: translateY(0);
-        bottom: 8px;
-        right: 8px;
     }
 }
