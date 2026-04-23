@@ -74,7 +74,7 @@ const projects = [
     title: "PI 4º DSM - MatematicaRio",
     description: "Reformulação do frontend do site MatematicaRio.",
     url: "https://github.com/deletrr/PI4",
-    image: GH,
+    image: "https://raw.githubusercontent.com/bianca-bomfim/matematica-rio/refs/heads/main/imagens/imagem1.jpg",
     isPI: true,
     details: [
       "**Atividade** interdiciplinar 4* semestre - Reformulação do frontend site MatematicaRio"
