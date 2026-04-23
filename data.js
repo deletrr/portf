@@ -24,8 +24,8 @@ const projects = [
     isPI: true,
     details: [
       "**Atividade** interdiciplinar 1º semestre - Mockup"
-      "**Objetivo:**Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável.",
-      "**Público:** Estudantes, profissionais, empresas e governos através de cursos online.",
+      "**Objetivo:**Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável."
+      
     ],
   },
   {
