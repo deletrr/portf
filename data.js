@@ -200,6 +200,7 @@ const aboutMe = {
     { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, Kotlin Multiplataform" },
     { icon: "cpu", label: "Sistemas Embarcados", description: "IoT & Firmware, Desenvolvimento de baixo nível C/C++, FreeRTOS, Telemetria, LoRa" },
     { icon: "server", label: "Cloud & DevOps", description: "Virtualização, CI/CD, Servidores Linux, Segurança de Redes, Docker, Kubernetes, K3s" },
+    { icon: "tools", label: "Consertos de Hardware", description: "Diagnóstico e Reparo de Placas, Solda Eletrônica, Recuperação de Trilha e Componentes" },
     { icon: "shield", label: "Segurança", description: "Criptografia & Redes" },
   ],
 };
