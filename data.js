@@ -210,13 +210,14 @@ const aboutMe = {
     { label: "Certificados & Badges", value: "15+" },
   ],
   highlights: [
+    { icon: "brain", label: "Edge AI & TinyML", description: "Inferência local em microcontroladores, Inteligência Embarcada e Integração de Modelos em IoT" },
+    { icon: "bot", label: "IA Aplicada", description: "Integração de LLMs, APIs de Inteligência Artificial, Automação e Processamento de Dados com Python" },
     { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, Kotlin Multiplataform" },
     { icon: "cpu", label: "Sistemas Embarcados", description: "IoT & Firmware, Desenvolvimento de baixo nível C/C++, FreeRTOS, Telemetria, LoRa" },
-    { icon: "server", label: "Cloud & DevOps", description: "Virtualização, CI/CD, Servidores Linux, Segurança de Redes, Docker, Kubernetes, K3s" },
+    { icon: "server", label: "Cloud", description: "Virtualização, CI/CD, Servidores Linux, Segurança de Redes, Docker, Kubernetes, K3s" },
     { icon: "cpu", label: "Consertos de Hardware", description: "Diagnóstico e Reparo de Placas, Solda Eletrônica, Recuperação de Trilha e Componentes" },
     { icon: "shield", label: "Segurança", description: "Criptografia & Redes" },
-    { icon: "brain", label: "Edge AI & TinyML", description: "Inferência local em microcontroladores, Inteligência Embarcada e Integração de Modelos em IoT" },
-    { icon: "bot", label: "IA Aplicada", description: "Integração de LLMs, APIs de Inteligência Artificial, Automação e Processamento de Dados com Python" }
+    
   ],
 };
 
