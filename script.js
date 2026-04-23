@@ -253,9 +253,9 @@
               <h1>${aboutMe.name}</h1>
               <p class="role">${aboutMe.role}</p>
               <div class="about-actions">
-                <a class="action-btn solid" href="mailto:contato@example.com">${ICONS.mail} Entrar em contato</a>
+                <a class="action-btn solid" href="mailto:daniloeletr@gmail.com">${ICONS.mail} Entrar em contato</a>
                 <a class="action-btn outline" href="https://github.com/deletrr" target="_blank" rel="noopener">${ICONS.github} GitHub</a>
-                <a class="action-btn outline" href="#">${ICONS.linkedin} LinkedIn</a>
+                <a class="action-btn outline" href="https://www.linkedin.com/in/danilopaulino/">${ICONS.linkedin} LinkedIn</a>
               </div>
             </div>
           </div>
