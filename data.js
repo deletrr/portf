@@ -198,8 +198,8 @@ const aboutMe = {
   ],
   highlights: [
     { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, Kotlin Multiplataform" },
-    { icon: "cpu", label: "IoT & Firmware", description: "ESP32, C++, FreeRTOS" },
-    { icon: "server", label: "Home Lab", description: "Proxmox, Docker, K3s" },
+    { icon: "cpu", label: "Sistemas Embarcados", description: "IoT & Firmware, Desenvolvimento de baixo nível C/C++, FreeRTOS, Telemetria, LoRa" },
+    { icon: "server", label: "Cloud & DevOps", description: "Virtualização, CI/CD, Servidores Linux, Segurança de Redes, Docker, Kubernetes, K3s" },
     { icon: "shield", label: "Segurança", description: "Criptografia & Redes" },
   ],
 };
