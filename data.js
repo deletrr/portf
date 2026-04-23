@@ -122,18 +122,18 @@ const skills = [
     image: "https://cdn-icons-png.flaticon.com/512/8750/8750809.png",
     details: [
       "**Conhecimentos:** Programação em C/C++ usando FreeRTOS.",
-      "Domínio em microcontroladores como ESP32 e Raspberry Pi Pico, e integração com diversos sensores.",
-      "Expertise em escrita de firmware e manipulação avançada de memórias NAND e ROM.",
+      "Domínio em microcontroladores como ESP32, Arduino e Raspberry Pi Pico, e integração com diversos sensores.",
+      "Expertise em escrita de firmware e manipulação de memórias NAND e ROM.",
     ],
   },
   {
-    title: "Virtualização & Home Lab",
-    description: "Containers, orquestração e gerenciamento avançado de servidores locais.",
+    title: "Cloud, DevOps & Home Lab",
+    description: "Containers, orquestração e gerenciamento de servidores.",
     image: "https://cdn-icons-png.flaticon.com/512/919/919853.png",
     details: [
-      "**Conhecimentos:** Gerenciamento avançado de containers (Docker) e clusters via Kubernetes (K3s).",
-      "Virtualização de ambientes utilizando Proxmox.",
-      "Sólida experiência em administração e configuração de servidores baseados em Linux, especificamente Armbian.",
+      "**Conhecimentos:** Gerenciamento de containers e clusters via Kubernetes.",
+      "Virtualização de ambientes.",
+      "Sólida experiência em administração e configuração de servidores baseados em Linux.",
     ],
   },
   {
@@ -151,7 +151,7 @@ const skills = [
     description: "Modelagem relacional, orquestração de dados e APIs RESTful.",
     image: "https://cdn-icons-png.flaticon.com/512/17365/17365482.png",
     details: [
-      "**Conhecimentos:** Projetos de banco de dados e modelagem relacional usando PostgreSQL.",
+      "**Conhecimentos:** Projetos de banco de dados e modelagem relacional ou nao relacional.",
       "Orquestração de fluxos complexos e regras de negócio.",
       "Criação de scripts automáticos e construção de payloads robustos com validação segura.",
     ],
