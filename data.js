@@ -127,7 +127,7 @@ const skills = [
     ],
   },
   {
-    title: "Cloud, DevOps & Home Lab",
+    title: "Cloud, Virtualização & Home Lab",
     description: "Containers, orquestração e gerenciamento de servidores.",
     image: "https://cdn-icons-png.flaticon.com/512/919/919853.png",
     details: [
