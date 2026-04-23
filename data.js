@@ -188,8 +188,8 @@ const aboutMe = {
   role: "Desenvolvedor Full-Stack & Entusiasta de IoT",
   avatar: "https://i.scdn.co/image/ab6775700000ee857bbe4aebb43f8cf1ede4803a",
   bio: [
-    "Desenvolvedor apaixonado por unir software e hardware, transformando ideias em sistemas concretos. atuo na fronteira exata entre o mundo físico e o digital. Minha forma de trabalhar é guiada por uma visão sistêmica:",
-    "gosto de entender o ciclo de vida completo de uma aplicação, desde o circuito eletrônico e a inteligência embarcada, até a infraestrutura que orquestra e protege os dados na nuvem.",
+    "Desenvolvedor apaixonado por unir software e hardware, transformando ideias em sistemas concretos. Atuo na fronteira exata entre o mundo físico e o digital. Minha forma de trabalhar é guiada por uma visão sistêmica.",
+    "Gosto de entender o ciclo de vida completo de uma aplicação, desde o circuito eletrônico e a inteligência embarcada, até a infraestrutura que orquestra e protege os dados na nuvem.",
     "Acredito que compreender o baixo nível e a arquitetura física me permite projetar softwares mais eficientes, construindo ecossistemas escaláveis e seguros do início ao fim.",
     "Estou sempre buscando desafios que combinem rigor técnico, curiosidade e impacto real, seja em IoT, dados ou desenvolvimento de aplicações multiplataforma.",
   ],
@@ -201,8 +201,10 @@ const aboutMe = {
     { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, Kotlin Multiplataform" },
     { icon: "cpu", label: "Sistemas Embarcados", description: "IoT & Firmware, Desenvolvimento de baixo nível C/C++, FreeRTOS, Telemetria, LoRa" },
     { icon: "server", label: "Cloud & DevOps", description: "Virtualização, CI/CD, Servidores Linux, Segurança de Redes, Docker, Kubernetes, K3s" },
-    { icon: "tools", label: "Consertos de Hardware", description: "Diagnóstico e Reparo de Placas, Solda Eletrônica, Recuperação de Trilha e Componentes" },
+    { icon: "cpu", label: "Consertos de Hardware", description: "Diagnóstico e Reparo de Placas, Solda Eletrônica, Recuperação de Trilha e Componentes" },
     { icon: "shield", label: "Segurança", description: "Criptografia & Redes" },
+    { icon: "brain", label: "Edge AI & TinyML", description: "Inferência local em microcontroladores, Inteligência Embarcada e Integração de Modelos em IoT" },
+    { icon: "bot", label: "IA Aplicada", description: "Integração de LLMs, APIs de Inteligência Artificial, Automação e Processamento de Dados com Python" }
   ],
 };
 
