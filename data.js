@@ -188,8 +188,9 @@ const aboutMe = {
   role: "Desenvolvedor Full-Stack & Entusiasta de IoT",
   avatar: "https://i.scdn.co/image/ab6775700000ee857bbe4aebb43f8cf1ede4803a",
   bio: [
-    "Desenvolvedor apaixonado por unir software e hardware, transformando ideias em sistemas concretos. Tenho como diferencial o gosto pelo trabalho de baixo nível: firmware, FreeRTOS, criptografia em microcontroladores e modding de hardware.",
-    "Atuo do frontend ao backend, passando por bancos de dados relacionais, orquestração com Node-RED e infraestrutura local com Proxmox, Docker e K3s. Acredito que aprender fazendo é o caminho mais curto para a maestria — meu home lab é prova viva disso.",
+    "Desenvolvedor apaixonado por unir software e hardware, transformando ideias em sistemas concretos. atuo na fronteira exata entre o mundo físico e o digital. Minha forma de trabalhar é guiada por uma visão sistêmica:",
+    "gosto de entender o ciclo de vida completo de uma aplicação, desde o circuito eletrônico e a inteligência embarcada, até a infraestrutura que orquestra e protege os dados na nuvem.",
+    "Acredito que compreender o baixo nível e a arquitetura física me permite projetar softwares mais eficientes, construindo ecossistemas escaláveis e seguros do início ao fim.",
     "Estou sempre buscando desafios que combinem rigor técnico, curiosidade e impacto real, seja em IoT, dados ou desenvolvimento de aplicações multiplataforma.",
   ],
   stats: [
