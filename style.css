@@ -1,4 +1,4 @@
-/* ============ Design system (Spotify-inspired) ============ */
+/* ====== Design do sistema (Inspirado no Spotify) ==== */
 :root {
   --background: 0 0% 96%;
   --foreground: 0 0% 7%;
@@ -334,21 +334,46 @@ h1.page-title {
   transition: opacity 0.3s;
 }
 .card.note-open .card-front { opacity: 0; pointer-events: none; }
+/* Image wrap: strict square box using padding-bottom hack (most reliable) */
 .card-image-wrap {
-  position: relative; width: 100%; max-height: 220px; aspect-ratio: 1 / 1;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* forces 1:1 square regardless of img natural size */
+  overflow: hidden;
 }
 .card-image {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
   border-radius: 0.5rem;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   transition: transform 0.5s;
+  background: hsl(var(--surface-elevated));
 }
 .card:hover .card-image { transform: scale(1.02); }
 .card-image.white-bg { background: #fff; }
+/* Project cards: image fills the square, cropping overflow */
 .card-image img {
-  width: 100%; height: 100%; object-fit: contain; padding: 0.5rem;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+  display: block;
+}
+/* GitHub fallback logo: contain with padding so logo isn't cropped */
+.card-image.gh-logo img {
+  object-fit: contain;
+  padding: 2.5rem;
+  opacity: 0.85;
+}
+/* Skills & certificates: uniform contained logos */
+.card.uniform .card-image img {
+  object-fit: contain !important;
+  padding: 1.25rem !important;
+  opacity: 1 !important;
 }
 .card-actions {
   position: absolute; bottom: 0.5rem; right: 0.5rem;
@@ -466,11 +491,29 @@ h1.page-title {
   box-shadow: var(--shadow-card);
 }
 @media (min-width: 768px) { .about-hero { padding: 3rem; } }
+.about-hero .hero-wave-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+  filter: blur(40px) saturate(1.5);
+  pointer-events: none;
+  z-index: 0;
+}
+.about-hero .hero-vignette {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, hsl(var(--background) / 0.10) 0%, hsl(var(--background) / 0.25) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
 .about-hero .glow1, .about-hero .glow2 {
   position: absolute; border-radius: 9999px;
   filter: blur(48px);
   animation: float 6s ease-in-out infinite;
+  z-index: 2;
 }
+.about-hero .about-hero-row { z-index: 3; }
 .about-hero .glow1 {
   top: 0; right: 0;
   width: 18rem; height: 18rem;

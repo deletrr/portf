@@ -101,6 +101,10 @@
     content.classList.remove("fade-in");
     if (state.view === "about") {
       content.innerHTML = renderAbout();
+      requestAnimationFrame(() => {
+        const c = $("#heroWaveCanvas");
+        if (c) attachWaves(c, { dense: true });
+      });
     } else if (state.view === "skills") {
       content.innerHTML = renderSkills();
       bindTabs();
@@ -136,7 +140,7 @@
     ];
     const grid =
       state.skillsTab === "specialties"
-        ? `<div class="grid">${skills.map(projectCardHTML).join("")}</div>`
+        ? `<div class="grid">${skills.map((s) => projectCardHTML({ ...s, uniform: true })).join("")}</div>`
         : `<div class="grid">${certificates
             .map((c) =>
               projectCardHTML({
@@ -147,6 +151,7 @@
                 url: c.url,
                 whiteBg: c.whiteBg,
                 externalIcon: true,
+                uniform: true,
               })
             )
             .join("")}</div>`;
@@ -186,15 +191,14 @@ function projectCardHTML(p) {
     const modalImage = (p.image === GH) ? "" : p.image;
     
     return `
-      <div class="card" data-title="${escapeAttr(p.title)}" data-url="${escapeAttr(p.url || "")}" data-image="${escapeAttr(modalImage || "")}" data-ext="${ext ? "1" : "0"}">
+      <div class="card ${p.uniform ? "uniform" : ""}" data-title="${escapeAttr(p.title)}" data-url="${escapeAttr(p.url || "")}" data-image="${escapeAttr(modalImage || "")}" data-ext="${ext ? "1" : "0"}">
         <div class="card-front">
           <div class="card-image-wrap">
-            <div class="card-image ${p.whiteBg || p.image === GH ? "white-bg" : ""}">
+            <div class="card-image ${p.whiteBg || p.image === GH ? "white-bg" : ""} ${(!p.uniform && p.image === GH) ? "gh-logo" : ""}">
               <img 
                 src="${p.image}" 
                 alt="${escapeAttr(p.title)}" 
                 loading="lazy" 
-                style="${p.image === GH ? 'padding: 2.5rem; object-fit: contain; opacity: 0.8;' : 'padding: 0; object-fit: cover;'}" 
               />
             </div>
             <div class="card-actions">
@@ -251,6 +255,8 @@ function projectCardHTML(p) {
     return `
       <section class="about">
         <div class="about-hero">
+          <canvas class="hero-wave-canvas" id="heroWaveCanvas" aria-hidden="true"></canvas>
+          <div class="hero-vignette"></div>
           <div class="glow1"></div><div class="glow2"></div>
           <div class="about-hero-row">
             <div class="avatar-wrap">
@@ -353,9 +359,10 @@ function projectCardHTML(p) {
   }
 
   // ---------- Wave background ----------
-  function initWaves() {
-    const canvas = $("#waveCanvas");
-    if (!canvas) return;
+  const _waveInstances = new WeakSet();
+  function attachWaves(canvas, opts = {}) {
+    if (!canvas || _waveInstances.has(canvas)) return;
+    _waveInstances.add(canvas);
     const ctx = canvas.getContext("2d");
     let width = 0, height = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -363,28 +370,37 @@ function projectCardHTML(p) {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = canvas.clientWidth;
       height = canvas.clientHeight;
+      if (width === 0 || height === 0) return;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
     window.addEventListener("resize", resize);
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(resize).observe(canvas);
+    }
 
-    const waves = [
+    const baseWaves = [
       { amp: 90, freq: 0.0035, speed: 0.00018, offset: 0, yBase: 0.55, alpha: 0.55, hueShift: 0 },
       { amp: 130, freq: 0.0022, speed: 0.00012, offset: Math.PI / 2, yBase: 0.65, alpha: 0.4, hueShift: 8 },
       { amp: 70, freq: 0.005, speed: 0.00026, offset: Math.PI, yBase: 0.72, alpha: 0.45, hueShift: -10 },
       { amp: 160, freq: 0.0015, speed: 0.0001, offset: Math.PI * 1.5, yBase: 0.82, alpha: 0.35, hueShift: 4 },
     ];
+    // For dense (banner) variant, scale amplitudes down a touch and raise base
+    const waves = opts.dense
+      ? baseWaves.map((w) => ({ ...w, amp: w.amp * 0.55, yBase: Math.max(0.4, w.yBase - 0.05), alpha: Math.min(0.7, w.alpha + 0.1) }))
+      : baseWaves;
 
     function getPrimary() {
       const v = getComputedStyle(document.documentElement).getPropertyValue("--primary").trim();
-      // CSS var não está no :root, então pega do body
       const bv = getComputedStyle(document.body).getPropertyValue("--primary").trim();
       return (bv || v || "141 76% 48%");
     }
 
     function draw(t) {
+      if (!canvas.isConnected) return;
+      if (width === 0 || height === 0) { resize(); }
       ctx.clearRect(0, 0, width, height);
       const hsl = getPrimary();
       const parts = hsl.split(/\s+/);
@@ -418,6 +434,10 @@ function projectCardHTML(p) {
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
+  }
+
+  function initWaves() {
+    attachWaves($("#waveCanvas"));
   }
 
   // ---------- Init ----------
