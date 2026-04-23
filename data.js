@@ -181,7 +181,7 @@ const aboutMe = {
   ],
   stats: [
     { label: "Projetos", value: "10+" },
-    { label: "Certificados", value: "15+" },
+    { label: "Certificados & Badges", value: "15+" },
   ],
   highlights: [
     { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, KMP" },
