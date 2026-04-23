@@ -176,17 +176,21 @@
     );
   }
 
-  function projectCardHTML(p) {
+function projectCardHTML(p) {
     const showInfo = (p.details && p.details.length > 0);
     const showAction = !!(p.url || p.onPreview !== undefined || p.image);
     const hasUrl = !!p.url;
     const ext = !!p.externalIcon;
+    
+    // Se a imagem for a logo padrão do GitHub (GH), não enviamos ela para o modal
+    const modalImage = (p.image === GH) ? "" : p.image;
+    
     return `
-      <div class="card" data-title="${escapeAttr(p.title)}" data-url="${escapeAttr(p.url || "")}" data-image="${escapeAttr(p.image || "")}" data-ext="${ext ? "1" : "0"}">
+      <div class="card" data-title="${escapeAttr(p.title)}" data-url="${escapeAttr(p.url || "")}" data-image="${escapeAttr(modalImage || "")}" data-ext="${ext ? "1" : "0"}">
         <div class="card-front">
           <div class="card-image-wrap">
-            <div class="card-image ${p.whiteBg ? "white-bg" : ""}">
-              <img src="${p.image}" alt="${escapeAttr(p.title)}" loading="lazy" />
+            <div class="card-image ${p.whiteBg || p.image === GH ? "white-bg" : ""}">
+              <img src="${p.image}" alt="${escapeAttr(p.title)}" loading="lazy" ${p.image === GH ? 'style="padding: 2rem; opacity: 0.8;"' : ''} />
             </div>
             <div class="card-actions">
               ${showInfo ? `<button class="btn-info" data-action="info" aria-label="Detalhes">${ICONS.info}</button>` : ""}
