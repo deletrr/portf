@@ -22,7 +22,8 @@ const projects = [
     url: "https://github.com/deletrr/PI1",
     image: "https://raw.githubusercontent.com/deletrr/PI1/refs/heads/main/layout.jpg",
     isPI: true,
-    details: ["**Atividade** interdiciplinar 1º semestre - Mockup"
+    details: [
+      "**Atividade** interdiciplinar 1º semestre - Mockup"
       "**Objetivo:**Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável.",
       "**Público:** Estudantes, profissionais, empresas e governos através de cursos online.",
     ],
@@ -40,7 +41,9 @@ const projects = [
     url: "https://github.com/Rogue-s-Haven/Interdisciplinar_agil",
     image: GH,
     isPI: true,
-    details: ["**Atividade** interdiciplinar 3º semestre - Aplicação de Scrum e organização de equipe."],
+    details: [
+      "**Atividade** interdiciplinar 3º semestre - Aplicação de Scrum e organização de equipe."
+    ],
   },
   {
     title: "COP 30",
@@ -64,7 +67,8 @@ const projects = [
     isPI: true,
     details: [
       "**Atividade** interdiciplinar 3º semestre - Java - Springboot"
-      "**Objetivo:** Criação de plataforma para gerenciamento da frota de onibus da igreja."],
+      "**Objetivo:** Criação de plataforma para gerenciamento da frota de onibus da igreja."
+    ],
   },
   {
     title: "PI 4º DSM - MatematicaRio",
@@ -84,7 +88,8 @@ const projects = [
     isPI: true,
     details: [
       "**Atividade** interdiciplinar 4* semestre - Projeto IOT com hardware simulado ou real" 
-      "Para monitoramento de vagas com parquimetro eletronico."],
+      "Para monitoramento de vagas com parquimetro eletronico."
+    ],
   },
   {
     title: "PI 5º DSM - React Native",
