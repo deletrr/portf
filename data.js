@@ -22,8 +22,8 @@ const projects = [
     url: "https://github.com/deletrr/PI1",
     image: "https://raw.githubusercontent.com/deletrr/PI1/refs/heads/main/layout.jpg",
     isPI: true,
-    details: [
-      "**Objetivo:** Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável.",
+    details: ["**Atividade** interdiciplinar 1º semestre - Mockup"
+      "**Objetivo:**Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável.",
       "**Público:** Estudantes, profissionais, empresas e governos através de cursos online.",
     ],
   },
@@ -40,7 +40,7 @@ const projects = [
     url: "https://github.com/Rogue-s-Haven/Interdisciplinar_agil",
     image: GH,
     isPI: true,
-    details: ["Aplicação de Scrum e organização de equipe."],
+    details: ["**Atividade** interdiciplinar 3º semestre - Aplicação de Scrum e organização de equipe."],
   },
   {
     title: "COP 30",
@@ -62,15 +62,19 @@ const projects = [
     url: "https://github.com/Rogue-s-Haven/PI-aparecida",
     image: "https://raw.githubusercontent.com/Rogue-s-Haven/Interdisciplinar_agil/refs/heads/main/print.png",
     isPI: true,
-    details: ["**Objetivo:** Plataforma para gerenciamento da frota de onibus da igreja."],
+    details: [
+      "**Atividade** interdiciplinar 3º semestre - Java - Springboot"
+      "**Objetivo:** Criação de plataforma para gerenciamento da frota de onibus da igreja."],
   },
   {
     title: "PI 4º DSM - MatematicaRio",
-    description: "Reformulação do frontend do site MatematiCaRio.",
+    description: "Reformulação do frontend do site MatematicaRio.",
     url: "https://github.com/deletrr/PI4",
     image: GH,
     isPI: true,
-    details: ["Framework: HTML, CSS e JS."],
+    details: [
+      "**Atividade** interdiciplinar 4* semestre - Reformulação do frontend site MatematicaRio"
+      ],
   },
   {
     title: "PI 4º DSM - IoT Cidade Conectada",
@@ -78,7 +82,9 @@ const projects = [
     url: "https://github.com/deletrr/PI4iot",
     image: GH,
     isPI: true,
-    details: ["Monitoramento de vagas com hardware embarcado."],
+    details: [
+      "**Atividade** interdiciplinar 4* semestre - Projeto IOT com hardware simulado ou real" 
+      "Para monitoramento de vagas com parquimetro eletronico."],
   },
   {
     title: "PI 5º DSM - React Native",
@@ -86,7 +92,9 @@ const projects = [
     url: "https://github.com/deletrr/PI5",
     image: GH,
     isPI: true,
-    details: ["Desenvolvido com React Native e Expo."],
+    details: [
+      "**Atividade** interdiciplinar 5* semestre - Criação de aplicativo React Native e Expo"
+      ],
   },
 ];
 
