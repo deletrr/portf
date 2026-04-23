@@ -124,7 +124,7 @@ const skills = [
   {
     title: "Dados, Backend & APIs",
     description: "Modelagem relacional, orquestração de dados e APIs RESTful.",
-    image: "https://cdn-icons-png.flaticon.com/512/1162/1162814.png",
+    image: "https://cdn-icons-png.flaticon.com/512/17365/17365482.png",
     details: [
       "**Conhecimentos:** Projetos de banco de dados e modelagem relacional usando PostgreSQL.",
       "Orquestração de fluxos complexos e regras de negócio com Node-RED.",
@@ -143,9 +143,9 @@ const skills = [
   {
     title: "DIY & Modding de Hardware",
     description: "Soluções criativas, consertos e adaptações de hardware eletrônico.",
-    image: "https://cdn-icons-png.flaticon.com/512/4603/4603126.png",
+    image: "https://cdn-icons-png.flaticon.com/512/675/675846.png",
     details: [
-      "**Conhecimentos:** Reparo em eletrônicos diversos e interpretação de esquemas elétricos (ex: placas-mãe como a MW-H61H2-M2).",
+      "**Conhecimentos:** Reparo em eletrônicos diversos e interpretação de esquemas elétricos.",
       "Modelagem e impressão 3D para projetos úteis, como gabinetes personalizados para controle térmico e secagem de filamentos.",
       "Telemetria e testes práticos em campo.",
     ],
