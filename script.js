@@ -189,9 +189,13 @@ function projectCardHTML(p) {
       <div class="card" data-title="${escapeAttr(p.title)}" data-url="${escapeAttr(p.url || "")}" data-image="${escapeAttr(modalImage || "")}" data-ext="${ext ? "1" : "0"}">
         <div class="card-front">
           <div class="card-image-wrap">
-		    
             <div class="card-image ${p.whiteBg || p.image === GH ? "white-bg" : ""}">
-              <img src="${p.image}" alt="${escapeAttr(p.title)}" loading="lazy" ${p.image === GH ? 'style="padding: 2rem; opacity: 0.8;"' : ''} />
+              <img 
+                src="${p.image}" 
+                alt="${escapeAttr(p.title)}" 
+                loading="lazy" 
+                style="${p.image === GH ? 'padding: 2.5rem; object-fit: contain; opacity: 0.8;' : 'padding: 0; object-fit: cover;'}" 
+              />
             </div>
             <div class="card-actions">
               ${showInfo ? `<button class="btn-info" data-action="info" aria-label="Detalhes">${ICONS.info}</button>` : ""}
