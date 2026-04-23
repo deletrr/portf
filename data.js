@@ -59,6 +59,18 @@ const projects = [
     image: GH,
     details: ["Integração de biblioteca QR e validação."],
   },
+    {
+    title: "PI 2º DSM - Sistema de Reserva de Salas da Fatec Itaquera",
+    description: "Sistema desenvolvido para o cliente Aparecida.",
+    url: "https://github.com/Fatec-itaquera-DSM-2-semestre-2024",
+    image: GH,
+    isPI: true,
+    details: [
+      "**Nota** Projeto esta privado pelo professor da materia do segundo semestre",
+      "**Atividade** interdiciplinar 2º semestre - Sistema de Reserva de Salas da Fatec Itaquera",
+      "**Objetivo:** Desenvolver um Sistema de Reserva de Salas online que seja intuitivo, eficiente e acessível aos professores da Fatec Itaquera. O sistema permitirá que os professores verifiquem a disponibilidade das salas, façam reservas e recebam confirmações de reserva de forma rápida e fácil.",
+    ],
+  },
   {
     title: "PI 3º DSM - Aparecida",
     description: "Sistema desenvolvido para o cliente Aparecida.",
@@ -84,7 +96,7 @@ const projects = [
     title: "PI 4º DSM - IoT Cidade Conectada",
     description: "Gestão de vagas urbanas com sensores IoT e monitoramento real-time.",
     url: "https://github.com/deletrr/PI4iot",
-    image: GH,
+    image: "https://raw.githubusercontent.com/deletrr/PI4iot/refs/heads/main/Captura%20de%20tela%202026-04-23%20151610.png",
     isPI: true,
     details: [
       "**Atividade** interdiciplinar 4* semestre - Projeto IOT com hardware simulado ou real", 
