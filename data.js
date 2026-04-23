@@ -98,7 +98,7 @@ const skills = [
     details: [
       "**Conhecimentos:** Programação em C/C++ usando FreeRTOS.",
       "Domínio em microcontroladores como ESP32 e Raspberry Pi Pico, e integração com diversos sensores.",
-      "Expertise em escrita de firmware e manipulação avançada de memórias NAND (ex: Rockchip RK322x).",
+      "Expertise em escrita de firmware e manipulação avançada de memórias NAND e ROM.",
     ],
   },
   {
@@ -117,7 +117,7 @@ const skills = [
     image: "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
     details: [
       "**Conhecimentos:** Criação de aplicações escaláveis usando Java, Python e React Native.",
-      "Desenvolvimento em Kotlin Multiplatform (KMP), com foco em lógica de negócios precisa, como formatação de máscaras rigorosas.",
+      "Desenvolvimento em Kotlin Multiplatform.",
       "Estruturação e estilização web com HTML, CSS e JS.",
     ],
   },
@@ -127,8 +127,8 @@ const skills = [
     image: "https://cdn-icons-png.flaticon.com/512/17365/17365482.png",
     details: [
       "**Conhecimentos:** Projetos de banco de dados e modelagem relacional usando PostgreSQL.",
-      "Orquestração de fluxos complexos e regras de negócio com Node-RED.",
-      "Criação de scripts automáticos no Google Apps Script e construção de payloads robustos com validação JSON segura.",
+      "Orquestração de fluxos complexos e regras de negócio.",
+      "Criação de scripts automáticos e construção de payloads robustos com validação segura.",
     ],
   },
   {
@@ -146,7 +146,7 @@ const skills = [
     image: "https://cdn-icons-png.flaticon.com/512/675/675846.png",
     details: [
       "**Conhecimentos:** Reparo em eletrônicos diversos e interpretação de esquemas elétricos.",
-      "Modelagem e impressão 3D para projetos úteis, como gabinetes personalizados para controle térmico e secagem de filamentos.",
+      "Modelagem e impressão 3D para projetos úteis.",
       "Telemetria e testes práticos em campo.",
     ],
   },
@@ -184,7 +184,7 @@ const aboutMe = {
     { label: "Certificados & Badges", value: "15+" },
   ],
   highlights: [
-    { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, KMP" },
+    { icon: "code", label: "Full-Stack Dev", description: "React, Java, Python, Kotlin Multiplataform" },
     { icon: "cpu", label: "IoT & Firmware", description: "ESP32, C++, FreeRTOS" },
     { icon: "server", label: "Home Lab", description: "Proxmox, Docker, K3s" },
     { icon: "shield", label: "Segurança", description: "Criptografia & Redes" },
