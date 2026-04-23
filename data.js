@@ -20,7 +20,7 @@ const projects = [
     title: "PI 1º DSM - Konoha",
     description: "Plataforma de ONG ambiental focada em cursos de consciencialização sustentável.",
     url: "https://github.com/deletrr/PI1",
-    image: GH,
+    image: "https://raw.githubusercontent.com/deletrr/PI1/refs/heads/main/layout.jpg",
     isPI: true,
     details: [
       "**Objetivo:** Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável.",
