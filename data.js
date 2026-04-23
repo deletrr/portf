@@ -23,8 +23,8 @@ const projects = [
     image: "https://raw.githubusercontent.com/deletrr/PI1/refs/heads/main/layout.jpg",
     isPI: true,
     details: [
-      "**Atividade** interdiciplinar 1º semestre - Mockup"
-      "**Objetivo:**Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável."
+      "**Atividade** interdiciplinar 1º semestre - Mockup",
+      "**Objetivo:**Informar e consciencializar as pessoas sobre as alterações climáticas e desenvolvimento sustentável.",
       
     ],
   },
@@ -66,8 +66,8 @@ const projects = [
     image: "https://raw.githubusercontent.com/Rogue-s-Haven/Interdisciplinar_agil/refs/heads/main/print.png",
     isPI: true,
     details: [
-      "**Atividade** interdiciplinar 3º semestre - Java - Springboot"
-      "**Objetivo:** Criação de plataforma para gerenciamento da frota de onibus da igreja."
+      "**Atividade** interdiciplinar 3º semestre - Java - Springboot",
+      "**Objetivo:** Criação de plataforma para gerenciamento da frota de onibus da igreja.",
     ],
   },
   {
@@ -87,8 +87,8 @@ const projects = [
     image: GH,
     isPI: true,
     details: [
-      "**Atividade** interdiciplinar 4* semestre - Projeto IOT com hardware simulado ou real" 
-      "Para monitoramento de vagas com parquimetro eletronico."
+      "**Atividade** interdiciplinar 4* semestre - Projeto IOT com hardware simulado ou real", 
+      "Para monitoramento de vagas com parquimetro eletronico.",
     ],
   },
   {
