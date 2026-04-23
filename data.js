@@ -95,7 +95,7 @@ const projects = [
     title: "PI 5º DSM - React Native",
     description: "App educativo de matemática com lógica de gamificação.",
     url: "https://github.com/deletrr/PI5",
-    image: GH,
+    image: "https://raw.githubusercontent.com/bianca-bomfim/prototipo-mobile-figma/refs/heads/main/assets/imagens/tela3.jpg",
     isPI: true,
     details: [
       "**Atividade** interdiciplinar 5* semestre - Criação de aplicativo React Native e Expo"
