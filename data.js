@@ -10,7 +10,7 @@ const projects = [
     title: "ESP32 CaosForge",
     description: "Gerador de entropia física com sorteio criptográfico, Node-RED e Google Sheets.",
     url: "https://github.com/deletrr/esp32caosforge",
-    image: GH,
+    image: "https://github.com/deletrr/ESP32caosForge/blob/main/web.jpg",
     details: [
       "**Objetivo:** Sistema de geração de aleatoriedade baseada em entropia física real do hardware.",
       "**Tecnologias:** ESP32, C++ (FreeRTOS), Node-RED, Google Apps Script, Criptografia (HMAC-SHA256).",
