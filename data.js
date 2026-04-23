@@ -57,12 +57,12 @@ const projects = [
     details: ["Integração de biblioteca QR e validação."],
   },
   {
-    title: "PI - Aparecida",
+    title: "PI 3º DSM - Aparecida",
     description: "Sistema desenvolvido para o cliente Aparecida.",
     url: "https://github.com/Rogue-s-Haven/PI-aparecida",
-    image: GH,
+    image: "https://raw.githubusercontent.com/Rogue-s-Haven/Interdisciplinar_agil/refs/heads/main/print.png",
     isPI: true,
-    details: ["Detalhes do sistema acadêmico personalizado."],
+    details: ["**Objetivo:** Plataforma para gerenciamento da frota de onibus da igreja."],
   },
   {
     title: "PI 4º DSM - MatematicaRio",
