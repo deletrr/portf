@@ -264,7 +264,7 @@ function projectCardHTML(p) {
               <img class="avatar-img" src="${aboutMe.avatar}" alt="${aboutMe.name}" />
             </div>
             <div class="about-text">
-              <p class="label">Olá, eu sou</p>
+              <p class="label"></p>
               <h1>${aboutMe.name}</h1>
               <p class="role">${aboutMe.role}</p>
               <div class="about-actions">
