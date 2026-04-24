@@ -11,7 +11,9 @@
     award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg>',
     user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
     info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
-    play: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6 4 20 12 6 20 6 4"/></svg>',
+    play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h4l2 2h6a2 2 0 0 1 2 2v3H2V6a2 2 0 0 1 2-2h2z"/><path d="M2 11h20l-2.5 8.5a2 2 0 0 1-2 1.5H6.5a2 2 0 0 1-2-1.5L2 11z"/></svg>',
+    chevronLeft: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>',
+    chevronRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>',
     external: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
     image: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
@@ -243,7 +245,10 @@ function projectCardHTML(p) {
       if (play) {
         play.addEventListener("click", (e) => {
           e.stopPropagation();
-          if (ext && url) window.open(url, "_blank", "noopener");
+          if (ext && url) { window.open(url, "_blank", "noopener"); return; }
+          // Try to find the full project entry to render the rich modal
+          const proj = projects.find((p) => p.title === title);
+          if (proj) openProjectModal(proj);
           else openModal(title, url, image);
         });
       }
@@ -312,6 +317,9 @@ function projectCardHTML(p) {
   }
 
   // ---------- Modal ----------
+  let _carouselIdx = 0;
+  let _carouselImgs = [];
+
   function openModal(title, url, image) {
     const modal = $("#previewModal");
     $("#modalTitle").textContent = title;
@@ -330,6 +338,93 @@ function projectCardHTML(p) {
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
   }
+
+  function openProjectModal(proj) {
+    const modal = $("#previewModal");
+    $("#modalTitle").textContent = proj.title;
+    const body = $("#modalBody");
+
+    // Build images list: prefer images[], otherwise fall back to image (skip generic GH logo)
+    let imgs = Array.isArray(proj.images) && proj.images.length
+      ? proj.images.slice()
+      : (proj.image && proj.image !== GH ? [proj.image] : []);
+    _carouselImgs = imgs;
+    _carouselIdx = 0;
+
+    // Description: use proj.about if defined, otherwise build from details/description
+    const aboutText = proj.about || proj.description || "";
+    const tech = Array.isArray(proj.tech) ? proj.tech : [];
+    const techHTML = tech.length
+      ? `<div class="proj-tech">${tech.map((t) => `<span class="tech-chip">${t}</span>`).join("")}</div>`
+      : "";
+    const detailsHTML = (proj.details || []).map((d) => `<p>${renderRich(d)}</p>`).join("");
+
+    const carouselHTML = imgs.length
+      ? `
+        <div class="carousel">
+          <div class="carousel-stage">
+            <img id="carouselImg" src="${imgs[0]}" alt="${escapeAttr(proj.title)}" />
+          </div>
+          ${imgs.length > 1 ? `
+            <button class="carousel-nav prev" data-carousel="prev" aria-label="Anterior">${ICONS.chevronLeft}</button>
+            <button class="carousel-nav next" data-carousel="next" aria-label="Próxima">${ICONS.chevronRight}</button>
+            <div class="carousel-dots" id="carouselDots">
+              ${imgs.map((_, i) => `<button class="dot ${i === 0 ? "active" : ""}" data-dot="${i}"></button>`).join("")}
+            </div>` : ""}
+        </div>`
+      : `
+        <div class="placeholder">
+          ${ICONS.image}
+          <strong>Sem imagens</strong>
+          <p>Nenhuma imagem foi adicionada para este projeto ainda.</p>
+        </div>`;
+
+    body.innerHTML = `
+      <div class="proj-modal">
+        ${carouselHTML}
+        <div class="proj-info">
+          ${aboutText ? `<p class="proj-about">${aboutText}</p>` : ""}
+          ${detailsHTML ? `<div class="proj-details">${detailsHTML}</div>` : ""}
+          ${techHTML}
+          ${proj.url ? `
+            <a class="proj-link" href="${proj.url}" target="_blank" rel="noopener">
+              ${ICONS.github} <span>Acessar projeto</span> ${ICONS.external}
+            </a>` : ""}
+        </div>
+      </div>`;
+
+    if (imgs.length > 1) {
+      body.querySelectorAll("[data-carousel]").forEach((b) =>
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          carouselGo(b.dataset.carousel === "next" ? 1 : -1);
+        })
+      );
+      body.querySelectorAll("[data-dot]").forEach((b) =>
+        b.addEventListener("click", (e) => {
+          e.stopPropagation();
+          carouselSet(parseInt(b.dataset.dot, 10));
+        })
+      );
+    }
+
+    $("#modalOpen").onclick = () => proj.url && window.open(proj.url, "_blank", "noopener");
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function carouselGo(delta) {
+    if (!_carouselImgs.length) return;
+    _carouselIdx = (_carouselIdx + delta + _carouselImgs.length) % _carouselImgs.length;
+    carouselSet(_carouselIdx);
+  }
+  function carouselSet(i) {
+    _carouselIdx = i;
+    const img = $("#carouselImg");
+    if (img) img.src = _carouselImgs[i];
+    $$("#carouselDots .dot").forEach((d, idx) => d.classList.toggle("active", idx === i));
+  }
+
   function closeModal() {
     $("#previewModal").classList.remove("open");
     document.body.style.overflow = "";
@@ -355,6 +450,10 @@ function projectCardHTML(p) {
     $$('#previewModal [data-close]').forEach((el) => el.addEventListener("click", closeModal));
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeModal();
+      if ($("#previewModal").classList.contains("open") && _carouselImgs.length > 1) {
+        if (e.key === "ArrowRight") carouselGo(1);
+        if (e.key === "ArrowLeft") carouselGo(-1);
+      }
     });
   }
 

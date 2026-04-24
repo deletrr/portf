@@ -5,12 +5,26 @@ const AWS = "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Serv
 const CISCO = "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg";
 const CPS = "https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/1/2022/09/logo-cps-2022.svg";
 
+/*
+  Estrutura de cada projeto (campos opcionais):
+    title, description, url, image,
+    images: []   -> várias imagens para o carrossel do modal (use esta para adicionar mais)
+    about: ""    -> texto longo exibido no modal sobre o projeto
+    tech: []     -> tecnologias utilizadas (chips no modal)
+    details: []  -> bullets já existentes (markdown **negrito**)
+    isPI: bool
+*/
 const projects = [
   {
     title: "ESP32 CaosForge",
     description: "Gerador de entropia física com sorteio criptográfico, Node-RED e Google Sheets.",
     url: "https://github.com/deletrr/esp32caosforge",
     image: "https://raw.githubusercontent.com/deletrr/ESP32caosForge/refs/heads/main/web.jpg",
+    images: [
+      "https://raw.githubusercontent.com/deletrr/ESP32caosForge/refs/heads/main/web.jpg",
+    ],
+    about: "Sistema de geração de aleatoriedade baseada em entropia física real do hardware ESP32, com sorteio criptográfico assinado (HMAC-SHA256), painel em Node-RED e exportação automática para Google Sheets.",
+    tech: ["ESP32", "C++", "FreeRTOS", "Node-RED", "Google Apps Script", "HMAC-SHA256"],
     details: [
       "**Objetivo:** Sistema de geração de aleatoriedade baseada em entropia física real do hardware.",
       "**Tecnologias:** ESP32, C++ (FreeRTOS), Node-RED, Google Apps Script, Criptografia (HMAC-SHA256).",
