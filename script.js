@@ -126,7 +126,7 @@
     const isPI = state.view === "pi";
     const list = isPI ? projects.filter((p) => p.isPI) : projects;
     const title = isPI ? "Projeto Integrador" : getGreeting();
-    const sub = isPI ? "Projetos Acadêmicos" : "Meus Projetos no GitHub";
+    const sub = isPI ? "Projetos Acadêmicos" : "Meus Projetos:";
     return `
       <section>
         <h1 class="page-title">${title}</h1>
