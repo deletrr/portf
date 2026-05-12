@@ -31,6 +31,18 @@ const projects = [
     ],
   },
   {
+    title: "LDM - Avaliação 1",
+    description: "Aplicativo Kotlin Multiplatform (KMP) com Compose Multiplatform, simulando um sistema de gerenciamento de músicas inspirado no Spotify. O app suporta três plataformas: Android, Desktop (JVM) e Web (WasmJs)",
+    url: "https://github.com/deletrr/av1-ldm",
+    image: "https://raw.githubusercontent.com/deletrr/av1-ldm/refs/heads/main/Captura%20de%20tela%202026-05-12%20152536.png",
+    isPI: true,
+    details: [
+      "**Atividade** interdiciplinar 6º semestre - App Kotlin Multiplataforma",
+      "**Objetivo:** Utilização de linguagens e bibliotecas Kotlin Multiplataforma",
+      
+    ],
+  },
+  {
     title: "PI 1º DSM - Konoha",
     description: "Plataforma de ONG ambiental focada em cursos de consciencialização sustentável.",
     url: "https://github.com/deletrr/PI1",
