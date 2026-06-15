@@ -139,6 +139,16 @@ const projects = [
       "**Atividade** interdiciplinar 5* semestre - Criação de aplicativo React Native e Expo"
       ],
   },
+  {
+    title: "PI 6º DSM - React Native",
+    description: "O PontoLivre é uma solução de Estacionamento Inteligente baseada em IoT projetada para otimizar a gestão de vagas urbanas. Através da integração de sensores ultrassônicos (ESP32), comunicação via protocolo MQTT e um ecossistema multiplataforma (Mobile e Web), o sistema permite o monitoramento em tempo real, pagamentos digitais automáticos e fiscalização eficiente, transformando a experiência de estacionar em cidades conectadas..",
+    url: "https://github.com/deletrr/PI6",
+    image: "https://raw.githubusercontent.com/deletrr/PI6/refs/heads/main/frontend_kmp/androidApp/src/main/res/drawable/logo.png",
+    isPI: true,
+    details: [
+      "**Atividade** interdiciplinar 6* semestre - PontoLivre — Sistema de Estacionamento Inteligente"
+      ],
+  },
 ];
 
 const skills = [
